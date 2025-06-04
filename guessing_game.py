@@ -3,7 +3,7 @@
 import random
 
 def play_game():
-    """Play a number guessing game where the user has 3 attempts to guess a number between 1 and 10."""
+    """Play a number guessing game where the user has three attempts to guess a randomly selected number between 1 and 10."""
     print("Welcome to the Number Guessing Game!")
     print("I have selected a number between 1 and 10.")
     number_to_guess = random.randint(1, 10)
@@ -23,7 +23,7 @@ def play_game():
             print("Your guess is too low. Try again!")
         else:
             print("Your guess is too high. Try again!")
-    else:
+        print(f"Sorry, you've used all attempts. The number was {number_to_guess}.")
         print(f"Sorry, you've used all attempts. The number was {number_to_guess}.")
         
     
