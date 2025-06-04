@@ -45,4 +45,28 @@ class NumberGuessingGame(tk.Tk):
             self.entry.config(state='disabled')
             self.SubmitButton.config(state='disabled')
             self.end_game()
-                        
+            
+        def end_game(self):
+            self.ResetButton.pack(pady=10)
+            self.entry.pack_forget() 
+            self.SubmitButton.pack_forget()
+            self.result.pack(pady=10)
+            
+        def reset_game(self):
+            self.number_to_guess = random.randint(1, 10)
+            self.guess_count = 0
+            
+            self.entry.config(state='normal')
+            self.entry.delete(0, tk.END)
+            self.result.config(text="")
+            
+            self.entry.pack(pady=10)
+            self.SubmitButton.pack(pady=10)
+            self.ResetButton.pack_forget()
+            
+    if __name__ == "__main__":
+        game = NumberGuessingGame()
+        game.entry.pack(pady=10)
+        game.SubmitButton.pack(pady=10)
+        game.result.pack(pady=10)
+        game.mainloop()
