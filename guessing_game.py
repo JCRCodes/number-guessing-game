@@ -29,7 +29,11 @@ def play_number_guessing_game():
             print("Your guess is too high. Try again!")
     else:
         print(f"Sorry, you've used all attempts. The number was {number_to_guess}.")
-        
-if __name__ == "__main__":
+
+# Main game loop
+while True:
     play_number_guessing_game()
-    
+    answer = input("Do you want to play again? (yes/no): ").strip().lower()
+    if answer == "no":
+        print("Thanks for playing! Goodbye!")
+        break
