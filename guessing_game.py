@@ -36,5 +36,4 @@ while True:
     answer = input("Do you want to play again? (yes/no): ").strip().lower()
     if answer == "no":
         print("Thanks for playing! Goodbye!")
-        break2
-    
+        
