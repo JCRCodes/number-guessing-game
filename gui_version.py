@@ -21,5 +21,28 @@ class NumberGuessingGame(tk.Tk):
         self.SubmitButton = tk.Button(self, text="Submit Guess", command=self.check_guess, font=("Arial", 14), bg="lightblue")
         self.ResetButton = tk.Button(self, text="Play Again", command=self.reset_game, font=("Arial", 14), bg="lightblue")
         
+    def check_guess(self):
+        try:
+            guess = int(self.entry.get())
+        except ValueError:
+            self.result.config(text="Invalid input. Please enter an integer.")
+            return
         
-
+        self.guess_count += 1
+        
+        if guess == self.number_to_guess:
+            self.result.config(text="Congratulations! You've guessed the number!")
+            self.entry.config(state='disabled')
+            self.SubmitButton.config(state='disabled')
+            self.end_game()
+        elif guess < self.number_to_guess:
+            self.result.config(text= "Your guess is too low. Try again!")   
+        else:
+            self.result.config(text="Your guess is too high. Try again!")   
+            
+        if self.guess_count >= self.max_guesses and guess != self.number_to_guess:
+            self.result.config(text=f"Sorry, you've used all attempts. The number was {self.number_to_guess}.")
+            self.entry.config(state='disabled')
+            self.SubmitButton.config(state='disabled')
+            self.end_game()
+                        
